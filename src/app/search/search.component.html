@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="input-group rounded">
+        <input type="search" [(ngModel)]="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon" (click)="searchTodos()">
+            <i class="fas fa-search"></i>
+        </span>
+    </div>
+
+    <ul class="list-group m-2">
+        <li *ngFor="let todo of filteredTodos" class="list-group-item">
+            <a routerLink="/storetodo/{{todo.id}}">{{todo.title}}</a>
+        </li>
+    </ul>
+</div>

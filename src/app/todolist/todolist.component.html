@@ -1,0 +1,21 @@
+<div class="container">
+    <h1 *ngIf="todoList.length==0" class="text-center">No Todos Stored</h1>
+    <ol class="list-group list-group-numbered">
+        <li *ngFor="let todo of todoList" class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto ">
+                <div class="fw-bold text-left">{{todo.title}}</div>
+                Due Date:{{todo.dueDate}}
+            </div>
+            <span *ngIf="todo.completed"class="badge bg-primary rounded-pill m-2">Completed</span>
+            <button *ngIf="!todo.completed" (click)="changeStatus(todo.id)" class="btn btn-sm btn-outline-success m-1">
+                Done
+            </button>
+            <button class="btn btn-sm btn-outline-danger m-1" (click)="deleteTodos(todo.id)">
+                Delete
+            </button>
+            <a routerLink="storetodo/{{todo.id}}" class="btn btn-sm btn-outline-primary m-1" >
+                Edit
+            </a>
+        </li>
+    </ol>
+</div>
